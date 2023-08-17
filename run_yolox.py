@@ -111,7 +111,7 @@ def main(args):
         if frame_num % args.chunk_len == 0:
             if len(buffer) > 0 and args.out_dir is not None:
                 store_gz_json(os.path.join(
-                    args.out_dir, 'detect_{:8d}.json.gz'.format(
+                    args.out_dir, 'detect_{:08d}.json.gz'.format(
                         frame_num - args.chunk_len)),
                     buffer)
             buffer = []
@@ -128,7 +128,7 @@ def main(args):
 
     if len(buffer) > 0 and args.out_dir is not None:
         store_gz_json(os.path.join(
-            args.out_dir, 'detect_{:8d}.json.gz'.format(
+            args.out_dir, 'detect_{:08d}.json.gz'.format(
                 frame_num - args.chunk_len)),
             buffer)
     print('Done!')
